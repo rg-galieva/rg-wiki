@@ -1,7 +1,7 @@
 // Given a string, return the character that is most
 // commonly used in the string.
 
-const maxChar = str => {
+function maxChar(str) {
     let maxFrequency = 0;
     let maxValue;
 
