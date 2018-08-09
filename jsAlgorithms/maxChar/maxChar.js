@@ -2,22 +2,22 @@
 // commonly used in the string.
 
 function maxChar(str) {
-    let maxFrequency = 0;
-    let maxValue;
-
-    const maxCharMap = str.split('').reduce((maxCharMapTemp, char) => {
-        maxCharMapTemp[char] = maxCharMapTemp[char] + 1 || 1;
-        return maxCharMapTemp;
+    const charMap = str.split('').reduce((charMapTemp, char) => {
+        charMapTemp[char] = charMapTemp[char] + 1 || 1;
+        return charMapTemp;
     }, {});
 
-    for (let char in maxCharMap) {
-        if (maxCharMap[char] > maxFrequency) {
-            maxFrequency = maxCharMap[char];
-            maxValue = char;
+    let maxFrequency = 0;
+    let maxFrequentChar = 0;
+
+    for (let char in charMap) {
+        if (maxFrequency < charMap[char]) {
+            maxFrequency = charMap[char];
+            maxFrequentChar = char;
         }
     }
 
-    return maxValue;
+    return maxFrequentChar;
 }
 
 module.exports = maxChar;
