@@ -1,26 +1,37 @@
-const Human = (state) => ({
-    getGreetings: () => console.log("I am Human. My name is:", state.name + " " + state.surname)
-})
+// function steps(n) {
+//     for (let row = 0; row < n; row++) {
+//         let result = '';
+//
+//         for (let column = 0; column < n; column++) {
+//             if (row >= column) {
+//                 result += '#'
+//             } else {
+//                 result += ' ';
+//             }
+//         }
+//
+//         console.log(result)
+//     }
+// }
 
-const Robot = (state) => ({
-    getModel: () => console.log("I am Robot. My model is:", state.model)
-});
 
+function steps(n, row = 0, result = '') {
+    if (row === n) return;
 
-const Posthuman = ({superPowers}) => ({
-    getSuperPowers: () => console.log("I have super powers: ", superPowers)
-});
+    const column = result.length;
 
-const kate = () => {
-    const state = {
-        name: 'Kate',
-        model: 'XR656',
-        surname: 'Perry'
-    };
+    if (n === column) {
+        console.log(result);
+        return steps(n, row + 1, '')
+    }
 
-    return Object.assign({}, Human(state), Robot(state))
-};
+    if (row >= column) {
+        result += '#'
+    } else {
+        result += ' ';
+    }
 
-kate().getGreetings();
-kate().getModel();
+    steps(n, row, result);
+}
 
+module.exports = steps

@@ -18,4 +18,10 @@ function capitalize(str) {
     return result.join(' ');
 }
 
+function capitalize2(text) {
+    return text.split(' ').map(word => {
+        return word[0].toUpperCase() + word.slice(1);
+    }).join(' ');
+}
+
 module.exports = capitalize;
