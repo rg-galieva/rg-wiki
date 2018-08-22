@@ -1,15 +1,15 @@
-// --- Directions
-//  Shorten a string of repeated letters (dddbbbaa) into numerical format (3d3b2a).
-//  Write function to reverse this process
+const str = '1234567';
 
-function reverseRepeatableChars(inputString) {
+const reversed = str.split('').reverse().join(''); /*?*/
+
+function reverse(str) {
     let result = '';
 
-    for (let i = 0; i < inputString.length; i = i + 2) {
-        result += inputString[i + 1].repeat(parseInt(inputString[i]));
+    for (let char of str) {
+        result = char + result
     }
 
     return result;
 }
 
-module.exports = reverseRepeatableChars;
+reverse(str) /*?*/

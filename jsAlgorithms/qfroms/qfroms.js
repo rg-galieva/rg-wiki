@@ -21,7 +21,7 @@ class Queue {
     }
 
     add(record) {
-        this.stack1.push(record);
+        this.stack1.push(record)
     }
 
     remove() {
@@ -29,29 +29,28 @@ class Queue {
             this.stack2.push(this.stack1.pop())
         }
 
-        const record = this.stack2.pop();
+        const result = this.stack2.pop();
 
         while (this.stack2.peek()) {
             this.stack1.push(this.stack2.pop())
         }
 
-        return record;
+        return result;
     }
 
     peek() {
         while (this.stack1.peek()) {
-            this.stack2.push(this.stack1.pop());
+            this.stack2.push(this.stack1.pop())
         }
 
         const result = this.stack2.peek();
 
         while (this.stack2.peek()) {
-            this.stack1.push(this.stack2.pop());
+            this.stack1.push(this.stack2.pop())
         }
 
         return result;
     }
-
 }
 
 module.exports = Queue;
