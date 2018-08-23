@@ -7,7 +7,6 @@ class Node {
         this.data = data;
         this.next = next;
     }
-
 }
 
 class LinkedList {
@@ -75,17 +74,81 @@ class LinkedList {
 
         previous.next = null;
     }
+
+    insertLast(data) {
+        const lastNode = this.getLast();
+
+        if (!lastNode) {
+            this.head = new Node(data);
+        } else {
+            lastNode.next = new Node(data);
+        }
+    }
+
+    getAt(index) {
+        let counter = 0;
+        let node = this.head;
+        while (node) {
+            if (counter === index) {
+                return node;
+            }
+
+            counter++;
+            node = node.next;
+        }
+        return null;
+    }
+
+    removeAt(index) {
+        if (!this.head) return;
+
+        if (index === 0) {
+            this.head = this.head.next;
+            return;
+        }
+
+        let prevNode = this.getAt(index - 1);
+        if (!prevNode || !prevNode.next) return;
+
+        let nodeToRemove = prevNode.next;
+        prevNode.next = nodeToRemove.next;
+    }
+
+    insertAt(data, index) {
+        if (!this.head) {
+            this.head = new Node(data);
+            return;
+        }
+
+        if (index === 0) {
+            this.head = new Node(data, this.head);
+            return;
+        }
+
+        const prevNode = this.getAt(index - 1) || this.getLast();
+        prevNode.next = new Node(data, prevNode.next);
+    }
+
+    forEach(fn) {
+        if (!this.head) return;
+
+        let node = this.head;
+
+        while (node) {
+            fn(node);
+            node = node.next;
+        }
+    }
+
+    *[Symbol.iterator]() {
+        let node = this.head;
+
+        while (node) {
+            yield node;
+            node = node.next;
+        }
+    }
+
 }
-
-const l = new LinkedList();
-
-const data = new Node('1212')
-l.insertFirst(1);
-l.insertFirst(1);
-l.insertFirst(1);
-
-console.log("[Client debug] l", l)
-l.size()
-/*?*/
 
 module.exports = {Node, LinkedList};
