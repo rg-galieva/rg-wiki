@@ -1,9 +1,4 @@
-// --- Directions
-// Create an 'eventing' library out of the
-// Events class.  The Events class should
-// have methods 'on', 'trigger', and 'off'.
-
-class Events {
+class EventManager {
   constructor() {
     this.events = {};
   }
@@ -36,5 +31,25 @@ class Events {
   }
 }
 
+/*
+// Example of usage
+const eventBus = new EventManager();
 
-module.exports = Events;
+const subscriber1 = (data) => {
+    console.log("[Client debug] subscriber1", data);
+};
+
+const subscriber2 = (data) => {
+    console.log("[Client debug] subscriber2", data)
+};
+
+eventBus.on('subscribe', subscriber1);
+eventBus.on('subscribe', subscriber2);
+
+eventBus.emit('subscribe', 10);
+
+eventBus.unsubscribe('subscribe', subscriber1);
+eventBus.emit('subscribe', 10);
+*/
+
+module.exports = EventManager;
