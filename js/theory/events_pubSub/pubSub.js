@@ -1,3 +1,5 @@
+// Publisher -> Subscriber
+
 class EventManager {
   constructor() {
     this.events = {};
