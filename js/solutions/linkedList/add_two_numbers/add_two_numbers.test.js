@@ -4,7 +4,7 @@ test('ListNode is a class', () => {
     expect(typeof ListNode.prototype.constructor).toEqual('function');
 });
 
-describe('add_two_numbers: 1', () => {
+describe('add_two_numbers: basic', () => {
     let l1 = new ListNode(2);
     l1.next = new ListNode(4);
     l1.next.next = new ListNode(3);
@@ -23,7 +23,7 @@ describe('add_two_numbers: 1', () => {
     })
 });
 
-describe('add_two_numbers: 2', () => {
+describe('add_two_numbers: single elements', () => {
     let l1 = new ListNode(0);
 
     let l2 = new ListNode(5);
@@ -35,7 +35,7 @@ describe('add_two_numbers: 2', () => {
     })
 });
 
-describe('add_two_numbers: 3', () => {
+describe('add_two_numbers: zero', () => {
     let l1 = new ListNode(0);
     l1.next = new ListNode(1);
     l1.next.next = new ListNode(2);
@@ -48,6 +48,35 @@ describe('add_two_numbers: 3', () => {
     result.next.next = new ListNode(2);
 
     test('(0 -> 1 -> 2) + (0 -> 1) => 0 -> 2 -> 2', () => {
+        expect(add_two_numbers(l1, l2)).toEqual(result);
+    })
+});
+
+describe('add_two_numbers: zeros', () => {
+    let l1 = new ListNode(9);
+    l1.next = new ListNode(9);
+
+    let l2 = new ListNode(1);
+
+    let result = new ListNode(0);
+    result.next = new ListNode(0);
+    result.next.next = new ListNode(1);
+
+    test('(9 -> 9) + (1) => 0 -> 0 -> 1', () => {
+        expect(add_two_numbers(l1, l2)).toEqual(result);
+    })
+});
+
+describe('add_two_numbers: empty list', () => {
+    let l1 = new ListNode();
+
+    let l2 = new ListNode(0);
+    l2.next = new ListNode(1);
+
+    let result = new ListNode(0);
+    result.next = new ListNode(1);
+
+    test('() + (0 -> 1) => 0 -> 1', () => {
         expect(add_two_numbers(l1, l2)).toEqual(result);
     })
 });
