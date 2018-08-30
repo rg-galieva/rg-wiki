@@ -7,6 +7,12 @@
 //   palindrome("abba") === true
 //   palindrome("abcdefg") === false
 
+
+/*
+ * If case sensitivity should be taken into account and whitespaces are allowed:
+ * const formattedStr = str.replace(/\s/g, '').toLowerCase();
+ */
+
 const palindrome1 = str => str === str.split('').reverse().join('');
 
 const palindrome = str => !str.split('').find((char, index) => char !== str[str.length - 1 - index]);
