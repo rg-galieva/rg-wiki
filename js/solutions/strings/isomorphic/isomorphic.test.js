@@ -1,18 +1,18 @@
 const isomorphic = require('./isomorphic');
 
-test('Converter function is defined', () => {
+test('isomorphic function is defined', () => {
     expect(typeof isomorphic).toEqual('function');
 });
 
-test('Checks basic case', () => {
+test('isomorphic: Basic check 1', () => {
     expect(isomorphic('paper', 'title')).toBeTruthy();
 });
 
-test('Converts correctly string to integers', () => {
+test('isomorphic: Basic check 2', () => {
     expect(isomorphic('dgggg', 'adddd')).toBeTruthy();
 });
 
-test('Converts correctly string to integers', () => {
+test('isomorphic: Basic check 3', () => {
     expect(isomorphic('egg', 'sad')).toBeFalsy();
 });
 
