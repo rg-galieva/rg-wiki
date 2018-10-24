@@ -38,24 +38,26 @@ function maxSubArrayList(nums) {
     let maxSumCurrent = nums[0];
     let startIndex = 0;
     let endIndex = 0;
-    let s = 0;
 
-    for (let curIndex = 0; curIndex < nums.length; curIndex++) {
-        maxSumCurrent = maxSumCurrent + nums[curIndex];
+    for (let curIndex = 1; curIndex < nums.length; curIndex++) {
+        const tempSum = maxSumCurrent + nums[curIndex];
 
-        if (maxSumTotal < maxSumCurrent) {
-            maxSumTotal = maxSumCurrent;
-            startIndex = s;
+        if (nums[curIndex] > tempSum) {
+            maxSumCurrent = nums[curIndex];
+            startIndex = curIndex;
+        } else {
+            maxSumCurrent = tempSum;
             endIndex = curIndex;
         }
 
-        if (maxSumCurrent < 0) {
-            maxSumCurrent = 0;
-            s = curIndex + 1;
+        if (maxSumTotal < maxSumCurrent) {
+            maxSumTotal = maxSumCurrent;
+            endIndex = curIndex;
         }
     }
 
     return nums.slice(startIndex, endIndex)
 }
+
 
 module.exports = {maxSubArray, maxSubArrayList};

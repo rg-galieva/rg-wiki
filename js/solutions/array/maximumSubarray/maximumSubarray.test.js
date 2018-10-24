@@ -31,5 +31,9 @@ describe('maxSubArrayList', () => {
     test('Mixed array 2', () => {
         expect(maxSubArrayList([-2, -3, 4, -1, -2, 1, 5, -3])).toEqual([4, -1, -2, 1, 5]);
     });
+
+    test('Negative only', () => {
+        expect(maxSubArrayList([-1, -2, -5, -2])).toEqual([-1]);
+    });
 })
 
