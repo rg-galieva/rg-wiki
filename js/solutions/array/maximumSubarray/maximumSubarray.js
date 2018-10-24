@@ -33,4 +33,29 @@ function maxSubArray(nums) {
     return maxSumTotal
 }
 
-module.exports = maxSubArray;
+function maxSubArrayList(nums) {
+    let maxSumTotal = nums[0];
+    let maxSumCurrent = nums[0];
+    let startIndex = 0;
+    let endIndex = 0;
+    let s = 0;
+
+    for (let curIndex = 0; curIndex < nums.length; curIndex++) {
+        maxSumCurrent = maxSumCurrent + nums[curIndex];
+
+        if (maxSumTotal < maxSumCurrent) {
+            maxSumTotal = maxSumCurrent;
+            startIndex = s;
+            endIndex = curIndex;
+        }
+
+        if (maxSumCurrent < 0) {
+            maxSumCurrent = 0;
+            s = curIndex + 1;
+        }
+    }
+
+    return nums.slice(startIndex, endIndex)
+}
+
+module.exports = {maxSubArray, maxSubArrayList};
