@@ -1,7 +1,7 @@
 // Given a string, return the character that is most
 // commonly used in the string.
 
-function maxChar(str) {
+function mostFrequentChar(str) {
     const charMap = str.split('').reduce((charMapTemp, char) => {
         charMapTemp[char] = charMapTemp[char] + 1 || 1;
         return charMapTemp;
@@ -20,4 +20,4 @@ function maxChar(str) {
     return maxFrequentChar;
 }
 
-module.exports = maxChar;
+module.exports = mostFrequentChar;
