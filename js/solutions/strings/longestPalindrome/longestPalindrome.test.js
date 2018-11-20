@@ -1,13 +1,17 @@
-const palindrome = require('./longestPalindrome');
+const palindrome = require('./longestPalindrome.repeat');
 
 test('palindrome function is defined', () => {
     expect(typeof palindrome).toEqual('function');
 });
 
 test('babad' , () => {
-    expect(palindrome('babad')).toBeEqual('bab');
+    expect(palindrome('babad')).toEqual('bab');
 });
 
 test('cbbd' , () => {
-    expect(palindrome('cbbd')).toBeEqual('bb');
+    expect(palindrome('cbbd')).toEqual('bb');
+});
+
+test('cbbd' , () => {
+    expect(palindrome('cbavvabd')).toEqual('bavvab');
 });
