@@ -1,4 +1,4 @@
-const converter = require('./base_convertion');
+const converter = require('./baseConvertion');
 
 test('Converter function is defined', () => {
     expect(typeof converter).toEqual('function');

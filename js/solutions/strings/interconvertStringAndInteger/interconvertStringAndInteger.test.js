@@ -1,4 +1,4 @@
-const interconvert = require('./interconvert_strings_and_integers');
+const interconvert = require('./interconvertStringAndInteger');
 
 test('Interconvert function is defined', () => {
     expect(typeof interconvert).toEqual('function');
