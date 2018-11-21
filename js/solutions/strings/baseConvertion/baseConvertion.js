@@ -28,7 +28,7 @@ Result: 1A7
 
 function baseConverter(input, base1, base2) {
     if ((base1 && base2) < 2 || (base1 && base2) > 36) {
-        throw new Error('Base between 2 and 36');
+        throw new RangeError('Base between 2 and 36');
     }
 
     const stringifiedInput = input.toString();
