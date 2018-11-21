@@ -35,7 +35,7 @@ function countBattleships(board) {
 
 			if (board[i][j] === 'X') {
 				battleships++;
-				checkIfShip(board, i, j);
+				sink(board, i, j);
 			}
 		}
 	}
@@ -43,17 +43,17 @@ function countBattleships(board) {
 	return battleships
 }
 
-function checkIfShip(board, i, j) {
+function sink(board, i, j) {
 	if (i < 0 || i >= board.length || j >= board[i].length || j < 0 || board[i][j] !== 'X') {
 		return
 	}
 
 	board[i][j] = '.';
 
-	checkIfShip(board, i - 1, j);
-	checkIfShip(board, i + 1, j);
-	checkIfShip(board, i, j - 1);
-	checkIfShip(board, i, j + 1);
+	sink(board, i - 1, j);
+	sink(board, i + 1, j);
+	sink(board, i, j - 1);
+	sink(board, i, j + 1);
 }
 
 module.exports = countBattleships;
