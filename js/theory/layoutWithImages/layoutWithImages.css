@@ -1,0 +1,57 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.Gallery {
+    padding: 10px 15px;
+    background: #f7f7f7;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.Gallery h1 {
+    margin-bottom: 20px;
+}
+
+.Gallery-card {
+    display: inline-block;
+    margin-bottom: 15px;
+    background: white;
+    overflow: hidden;
+    border-radius: 4px;
+    box-shadow: 1px 1px 1px #cccccc;
+}
+
+.Gallery-image {
+    background: #ccc;
+    display: block;
+}
+
+.Gallery-info {
+    padding: 10px 15px;
+}
+
+.Gallery-avatar {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: red;
+}
+
+.Gallery-caption {
+    margin-left: 35px;
+    font-size: 14px;
+}
+
+.Gallery-caption p {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.Gallery-caption-description {
+    color: #a5a1a1;
+    font-size: 11px;
+}
