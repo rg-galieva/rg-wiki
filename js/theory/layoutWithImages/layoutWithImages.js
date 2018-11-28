@@ -18,9 +18,9 @@ function normalizeFrames(frames, containerWidth = 800, maxRowHeight = 360) {
 		const scale = widthScale < heightScale ? widthScale : heightScale;
 
 		return {
+			...rest,
 			width: width * scale,
 			height: height * scale,
-			...rest
 		}
 	})
 }

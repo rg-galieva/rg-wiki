@@ -1,5 +1,5 @@
-const Node = require('./node');
-const validate = require('./index');
+const Node = require('../bsTree');
+const validate = require('./bsTree.validate');
 
 test('Validate recognizes a valid BST', () => {
   const n = new Node(10);
