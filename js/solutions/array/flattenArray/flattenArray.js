@@ -1,45 +1,45 @@
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat
 
 function flattenArray(arr) {
-    return arr.reduce((acc, cur) => {
-        return Array.isArray(cur) ?
-            acc.concat(flattenArray(cur)) :
-            acc.concat(cur)
-    }, [])
+	return arr.reduce((acc, cur) => {
+		return Array.isArray(cur) ?
+			acc.concat(flattenArray(cur)) :
+			acc.concat(cur)
+	}, [])
 }
 
+
 function flattenArrayWithStack(arr) {
-    const stack = [...arr];
-    const res = [];
+	const stack = [...arr];
+	let result = [];
 
-    while (stack.length) {
-        const next = stack.pop();
+	while (stack.length) {
+		const cur = stack.pop();
+		if (Array.isArray(cur)) {
+			stack.push(...cur)
+		} else {
+			result.unshift(cur)
+		}
+	}
 
-        if (Array.isArray(next)) {
-            stack.push(...next)
-        } else {
-            res.push(next)
-        }
-    }
-
-    return res.reverse();
+	return result;
 }
 
 function flattenArrayWithQueue(arr) {
-    const queue = [...arr];
-    const res = [];
+	const queue = [...arr];
+	const res = [];
 
-    while (queue.length) {
-        const next = queue.shift();
+	while (queue.length) {
+		const next = queue.shift();
 
-        if (Array.isArray(next)) {
-            queue.push(...next)
-        } else {
-            res.push(next)
-        }
-    }
+		if (Array.isArray(next)) {
+			queue.push(...next)
+		} else {
+			res.push(next)
+		}
+	}
 
-    return res;
+	return res;
 }
 
 module.exports = {flattenArray, flattenArrayWithStack, flattenArrayWithQueue}
