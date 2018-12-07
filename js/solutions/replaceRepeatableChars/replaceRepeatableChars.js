@@ -1,20 +1,32 @@
-// --- Directions
-//  Shorten a string of repeated letters (dddbbbaa) into numerical format (3d3b2a).
-//  Write function to reverse this process
+// Write a program to encrypt a given string. eg : aaaffdeeaabbbb to a3f2d1e2a2b4
 
-function replaceRepeatableChars(inputString) {
-    const sortedInputMap = inputString.split('').reduce((sortedInputMapTemp, char) => {
-        sortedInputMapTemp[char] = sortedInputMapTemp[char] + 1 || 1;
-        return sortedInputMapTemp;
-    }, {});
+function replaceRepeatableChars(s) {
+	const chars = s.split('');
+	let curChar = null;
+	let count = 0;
 
-    let result = '';
+	let result = '';
 
-    for (let char in sortedInputMap) {
-        result += sortedInputMap[char] + char;
-    }
+	for (let char of chars) {
+		if (curChar === char) {
+			count++;
+		} else {
 
-    return result;
+			if (count > 0) {
+				result += `${count}${curChar}`;
+			}
+
+			curChar = char;
+			count = 1;
+		}
+	}
+
+	if (count > 0) {
+		result += `${count}${curChar}`;
+	}
+
+	return result;
 }
+
 
 module.exports = replaceRepeatableChars;
