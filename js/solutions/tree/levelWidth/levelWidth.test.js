@@ -1,5 +1,5 @@
-const Node = require('./node');
-const levelWidth = require('./index');
+const { Node } = require('../tree');
+const levelWidth = require('./levelWidth');
 
 test('levelWidth is a function', () => {
   expect(typeof levelWidth).toEqual('function');
