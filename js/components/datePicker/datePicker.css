@@ -1,0 +1,5 @@
+.datePickerFallback .day {
+    display: grid;
+    grid-template-columns: repeat(7, min-content);
+    grid-gap: 5px;
+}
